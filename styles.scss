@@ -1,0 +1,1364 @@
+/*source: https://www.w3schools.com/howto/howto_css_image_center.asp*/
+%link_decoration
+{
+  text-decoration: none;
+  color: black;
+}
+
+
+a {
+
+  @extend %link_decoration;
+
+  &:visited
+  {
+    @extend %link_decoration;
+  }
+
+  &:hover
+  {
+    @extend %link_decoration;
+  }
+
+  &:focus
+  {
+    @extend %link_decoration;
+  }
+
+  &:active
+  {
+    @extend %link_decoration;
+  }
+}
+
+
+@mixin box-shadow
+{
+  box-shadow: 0px 5px 5px 5px rgb(232, 232, 232);
+}
+
+
+
+$primary: #9356DC;
+$secondary: #FF79DA;
+$tertiary: #99E2D0;
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes loading
+{
+  from
+  {
+    transform: rotate(0deg);
+  }
+
+  to
+  {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*https://programmersportal.com/how-to-hide-a-div-after-5-seconds-in-css/*/
+@keyframes hideMe{
+  0%{
+      opacity: 1;
+  }
+  /*99.99%{
+      opacity: 1;
+  }*/
+  100%{
+      opacity: 0;
+      z-index: -1;
+  }
+}
+
+@keyframes showDish 
+{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+}
+
+body 
+{
+    .loader
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      background-color: black;
+      position: fixed;
+      z-index: 1;
+      top:0;
+      left:0;
+      animation: hideMe 3s forwards;
+      .spinner
+      {
+        width:100px;
+        height: 100px;
+        border: 5px solid white;
+        border-radius: 50%;
+        border-top: 5px solid green;
+        border-bottom: 5px solid red;
+        animation: loading .5s ease infinite;
+      }
+    }
+
+
+    font-family: "Roboto";
+    height: 100vh;
+    width: 100vw;
+    header 
+    {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+
+      .fa-sharp.fa-solid.fa-arrow-left 
+      {
+        text-indent: 20px;
+        text-decoration: none;
+        color: black;
+      }
+
+
+      .logo 
+      {
+        display: block;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+      }
+    }
+
+    .fore-image 
+    {
+      margin-top: 10px;
+      object-fit: cover;
+      height: 270px;
+      width: 100%;
+    }
+
+    .location 
+    {
+      display: flex;
+      margin-top: 10px;
+      text-indent: 15px;
+      padding: 20px 0;
+      background-color: rgb(234, 234, 234);
+      border-top: 3px solid gainsboro;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .booking 
+    {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(246, 246, 246);
+      text-align: center;
+
+      p 
+      {
+        font-size: 18px;
+      }
+
+      .explore
+      {
+        margin: 15px auto;
+        height: 40px;
+        cursor: pointer;
+        border-radius: 30px;
+        padding: 0 10px;
+        background: linear-gradient($secondary, $primary);
+        color: white;
+        width: 50%;
+        
+
+        &:hover
+        {
+          box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+          background: linear-gradient(rgba($secondary, .9), rgba($primary, .9));
+        }
+      }
+    }
+
+    .howItWorks
+    {
+      h2
+      {
+        text-indent: 2%;
+      }
+
+      &__options
+      {
+        display: flex;
+        flex-direction: column;
+        gap: 40px 0;
+        padding: 0 20px;
+
+        &__option
+        {
+          display: flex;
+          align-items: center;
+          background-color: #f6f6f6;
+          font-size: 16px;
+          cursor: pointer;
+          padding: 30px;
+          border-radius: 30px;
+          @include box-shadow;
+
+          .material-symbols-sharp 
+          {
+            position: relative;
+            left: -20px;
+            color: gray;
+            align-self: center;
+          }
+
+          .material-symbols-sharp--purple 
+          {
+            position: relative;
+            left: -20px;
+            color: #9356DC;
+            align-self: center;
+          }
+
+          .counter-circle
+          {
+            position: relative;
+            left: -23px;
+            top: 2px;
+            .material-symbols-sharp 
+            {
+              color: #9356DC;
+            }
+            align-self: center;
+          }
+
+        }
+      }
+    }
+
+    .restaurants-container 
+    {
+      display: flex;
+      flex-direction: column;
+      background-color: #f6f6f6;
+      margin-top: 70px;
+      padding-bottom: 50px;
+
+      h2 
+      {
+        padding-top: 20px;
+        text-indent: 3%;
+      }
+
+      &__restaurants 
+      {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 3%;
+
+        &__restaurant 
+        {
+          height: 220px;
+          width: 100%;
+          border-radius: 15px;
+          background-color: white;
+          @include box-shadow;
+
+          &__image 
+          {
+            height: 150px;
+            width: 100%;
+
+            img 
+            {
+              height: 100%;
+              width: 100%;
+              border-top-left-radius: 15px;
+              border-top-right-radius: 15px;
+              object-fit: cover;
+            }
+            .new-restaurant 
+            {
+              position: relative;
+              top: -135px;
+              left: 75%;
+              padding: 2px 20px;
+              background: $tertiary;
+              color: rgb(0, 135, 102);
+            }
+          }
+
+          h4 
+          {
+            line-height: 2px;
+            text-indent: 12px;
+          }
+
+          p 
+          {
+            text-align: left;
+            text-indent: 12px;
+            line-height: 2px;
+          }
+          
+        }
+
+        .far
+        {
+          &.fa-heart
+          {
+            &.fa-xl
+            {
+              position: relative;
+              left: 85%;
+              top: -50px;
+              z-index: 1;
+              cursor: pointer;
+              transition-property: -webkit-background-clip, font-weight, background-image, -webkit-text-fill-color;
+              transition-duration: 2s;
+              transition-timing-function: ease-out;
+              width: fit-content;
+
+              &:active
+              {
+                /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
+                -webkit-background-clip: text;
+                font-weight: 900;
+                background-image: linear-gradient($primary, $secondary);
+                -webkit-text-fill-color: transparent;
+              }
+            }
+
+          }
+  
+        } 
+      }
+    }
+
+    .menu 
+    {
+      position: relative;
+      top: -65px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      background-color: #f6f6f6;
+      margin-bottom: -65px;
+
+      .restaurant-logo 
+      {
+        display: flex;
+        align-items: first baseline;
+        justify-content: space-between;
+        padding: 20px 20px;
+
+        h1 
+        {
+          font-family: "Shrikhand";
+          font-size: 22px;
+        }
+      }
+
+      .dishes
+      {
+        opacity: 0;
+        .category 
+        {
+          text-indent: 20px;
+        }
+
+        .partial-underline 
+        {
+            position: relative;
+            border: 1px solid $tertiary;
+            width: 40px;
+            left: 19px;
+        }
+
+        .dish 
+        {
+          display: flex;
+          align-items: center;
+          margin: 10px;
+          background-color: rgb(255, 255, 255);
+          border-radius: 15px;
+          cursor: pointer;
+          @include box-shadow;
+          overflow: hidden;
+
+          .dish-container 
+          {
+            display: flex;   
+            flex-direction: column;
+            overflow: hidden;
+            padding: 10px 0 10px 10px;
+            flex-basis: 100%;
+            margin-right: -65.6px;
+            transition-property: margin-right;
+            transition-duration: .4s;
+
+            .main 
+            {
+              font-size: 20px;
+              font-weight: 600;
+            }
+
+            .side 
+            {
+              font-size: 14px;
+              text-overflow: ellipsis;
+              white-space:nowrap;
+              overflow: hidden;
+            }
+          }
+
+          
+
+          .cost 
+          {
+            display: flex;
+            align-items: center;
+            align-self:last baseline;
+            transform: translateX(65.6px);
+            font-size: 14px;
+            min-width:35px;
+            padding: 10px 0;
+            margin-right: 25px;
+            margin-left: 6px;
+            transition-property: transform;
+            transition-duration: .4s;
+            .fa-euro-sign
+            {
+              position: relative;
+              top: 0px;
+              font-size: 14px;
+              left: 2px;
+            }
+          }
+
+          .check-mark
+          {
+            display: flex;
+            border:1px solid $tertiary;
+            align-items: center;
+            align-self: stretch;
+            padding: 0px 20px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            background: $tertiary;
+            transform: translateX(65.6px);
+            transition-property: transform, margin-left;
+            transition-duration: .5s;
+
+            .fa-solid
+            {
+              &.fa-circle-check
+              {
+                color: #fff;
+                border-radius: 50%;
+              }
+            }
+          }
+      
+
+          &:active > .dish-container
+          {
+            margin-right: 0;
+          }
+
+          &:active > .cost
+          {
+            transform: translateX(0);
+          }
+
+          &:active > .check-mark
+          {
+            margin-left: -7px;
+            transform: translateX(0);
+
+            .fa-solid
+            {
+              &.fa-circle-check
+              {
+                animation-name: spin;
+                animation-duration: .5s;
+                animation-fill-mode: forwards;
+              }
+            }
+          }
+
+        }
+
+        &#entrees
+        {
+          animation-name: showDish;
+          animation-duration: .5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease-in;
+          animation-delay: 1s;
+        }
+
+        &#main_dish
+        {
+          animation-name: showDish;
+          animation-duration: .5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease-in;
+          animation-delay: 1.5s;
+        }
+
+        &#desserts
+        {
+          animation-name: showDish;
+          animation-duration: .5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: linear;
+          animation-delay: 2s;
+        }
+      }
+
+      .button-container 
+      {
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 40px;
+
+        button 
+        {
+          width: 42%;
+          height: 40px;
+          border-radius: 22px;
+          background: linear-gradient($secondary, $primary);
+          color: white;
+          cursor: pointer;
+          &:hover
+          {
+            box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+            background: linear-gradient(rgba($secondary, .9), rgba($primary, .9));
+          }
+        }
+
+      }
+    }
+
+    footer 
+    {
+      background-color: #333333;
+      display: flex;
+      flex-direction: column;
+
+      .footer-logo 
+      {
+        width: 30%;
+        margin-left: 5%;
+        margin-top: 20px;
+        filter: invert(100%);
+      }
+
+      .suggest-a-restaurant 
+      {
+        margin-top: 10px;
+        margin-left: 5%;
+        filter: invert(100%);
+
+        span 
+        {
+          margin-left: 8px;
+          font-size: medium;
+          cursor: pointer;
+        }
+      }
+
+      .become-a-partner 
+      {
+        margin-top: 10px;
+        margin-left: 5%;
+        filter: invert(100%);
+
+        span
+        {
+          margin-left: 3px;
+          font-size: medium;
+          cursor: pointer;
+        }
+      }
+
+      .legal 
+      {
+        margin-top: 10px;
+        margin-left: 5%;
+        filter: invert(100%);
+
+        span 
+        {
+          margin-left: 3px;
+          font-size: medium;
+          cursor: pointer;
+        }
+      }
+
+      .contact 
+      {
+        margin-top: 10px;
+        margin-left: 5%;
+        filter: invert(100%);
+
+        a 
+        {
+          margin-left: 3px;
+          font-size: medium;
+          cursor: pointer;
+        }
+
+        margin-bottom: 10px;
+      }
+
+      #email
+      {
+        margin-left: 5%;
+        filter: invert(100%);
+        display: none;
+
+        &:target
+        {
+          display: block;
+        }
+
+        span 
+        {
+          margin-left: 3px;
+          font-size: medium;
+
+          .email_link
+          { 
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+
+        margin-bottom: 10px;
+      }
+    }
+}
+  
+
+
+
+
+@media (min-width: 640px)
+{
+  @mixin box-shadow
+  {
+    box-shadow: 5px 5px 5px 5px rgb(232, 232, 232);
+  }
+  
+  
+  
+  $primary: #9356DC;
+  $secondary: #FF79DA;
+  $tertiary: #99E2D0;
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes loading
+  {
+    from
+    {
+      transform: rotate(0deg);
+    }
+  
+    to
+    {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
+  /*https://programmersportal.com/how-to-hide-a-div-after-5-seconds-in-css/*/
+  @keyframes hideMe{
+    0%{
+      /*display: flex;*/
+        opacity: 1;
+    }
+    /*99.99%{
+        opacity: 1;
+    }*/
+    100%{
+        opacity: 0;
+        z-index: -1;
+    }
+  }
+  
+  @keyframes showDish 
+  {
+    0%{
+      opacity: 0;
+    }
+  
+    100%{
+      opacity: 1;
+      transform: translateY(-5px);
+    }
+  }
+  
+
+  body 
+  {
+    .loader
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      background-color: black;
+      position: fixed;
+      z-index: 1;
+      top:0;
+      left:0;
+      animation: hideMe 3s forwards;
+      .spinner
+      {
+        width:100px;
+        height: 100px;
+        border: 5px solid white;
+        border-radius: 50%;
+        border-top: 5px solid green;
+        border-bottom: 5px solid red;
+        animation: loading .5s ease infinite;
+      }
+    }
+
+
+    font-family: "Roboto";
+    height: 100vh;
+    width: 100vw;
+    header 
+    {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+
+      .fa-sharp.fa-solid.fa-arrow-left 
+      {
+        text-indent: 20px;
+        text-decoration: none;
+        color: black;
+      }
+
+
+      .logo 
+      {
+        display: block;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        cursor: pointer;
+      }
+    }
+
+    .fore-image 
+    {
+      margin-top: 10px;
+      object-fit: cover;
+      height: 270px;
+      width: 100%;
+    }
+
+    .location 
+    {
+      display: flex;
+      margin-top: 10px;
+      text-indent: 15px;
+      padding: 20px 0;
+      background-color: rgb(234, 234, 234);
+      border-top: 3px solid gainsboro;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .booking 
+    {
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(246, 246, 246);
+      text-align: center;
+
+      p 
+      {
+        font-size: 18px;
+      }
+
+      .explore
+      {
+        margin: 15px auto;
+        height: 40px;
+        cursor: pointer;
+        border-radius: 30px;
+        padding: 0 10px;
+        background: linear-gradient($secondary, $primary);
+        color: white;
+        width: 50%;
+        
+
+        &:hover
+        {
+          box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+          background: linear-gradient(rgba($secondary, .9), rgba($primary, .9));
+        }
+      }
+    }
+
+    .howItWorks
+    {
+      h2
+      {
+        text-indent: 2%;
+      }
+
+      &__options
+      {
+        display: flex;
+        flex-direction: column;
+        gap: 40px 0;
+        padding: 0 20px;
+
+        &__option
+        {
+          display: flex;
+          align-items: center;
+          background-color: #f6f6f6;
+          font-size: 16px;
+          cursor: pointer;
+          padding: 30px;
+          border-radius: 30px;
+          @include box-shadow;
+
+          .material-symbols-sharp 
+          {
+            position: relative;
+            left: -20px;
+            color: gray;
+            align-self: center;
+          }
+
+          .material-symbols-sharp--purple 
+          {
+            position: relative;
+            left: -20px;
+            color: #9356DC;
+            align-self: center;
+          }
+
+          .counter-circle
+          {
+            position: relative;
+            left: -23px;
+            top: 2px;
+            .material-symbols-sharp 
+            {
+              color: #9356DC;
+            }
+            align-self: center;
+          }
+
+        }
+      }
+    }
+
+    .restaurants-container 
+    {
+      display: flex;
+      flex-direction: column;
+      background-color: #f6f6f6;
+      margin-top: 70px;
+      padding-bottom: 50px;
+
+      h2 
+      {
+        padding-top: 20px;
+        text-indent: 3%;
+      }
+
+      &__restaurants 
+      {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 3%;
+
+        &__restaurant 
+        {
+          height: 220px;
+          width: 100%;
+          border-radius: 15px;
+          background-color: white;
+          @include box-shadow;
+
+          &__image 
+          {
+            height: 150px;
+            width: 100%;
+
+            img 
+            {
+              height: 100%;
+              width: 100%;
+              border-top-left-radius: 15px;
+              border-top-right-radius: 15px;
+              object-fit: cover;
+            }
+            .new-restaurant 
+            {
+              position: relative;
+              top: -135px;
+              left: 75%;
+              padding: 2px 20px;
+              background: $tertiary;
+              color: rgb(0, 135, 102);
+            }
+          }
+
+          h4 
+          {
+            line-height: 2px;
+            text-indent: 12px;
+          }
+
+          p 
+          {
+            text-align: left;
+            text-indent: 12px;
+            line-height: 2px;
+          }
+          
+        }
+
+        .far
+        {
+          &.fa-heart
+          {
+            &.fa-xl
+            {
+              position: relative;
+              left: 85%;
+              top: -50px;
+              z-index: 1;
+              cursor: pointer;
+              transition-property: -webkit-background-clip, font-weight, background-image, -webkit-text-fill-color;
+              transition-duration: 2s;
+              transition-timing-function: ease-out;
+              width: fit-content;
+
+              &:hover
+              {
+                /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
+                -webkit-background-clip: text;
+                font-weight: 900;
+                background-image: linear-gradient($primary, $secondary);
+                -webkit-text-fill-color: transparent;
+              }
+            }
+
+          }
+  
+        } 
+      }
+    }
+
+    .menu 
+    {
+      position: relative;
+      top: -65px;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      background-color: #f6f6f6;
+      margin-bottom: -65px;
+
+      .restaurant-logo 
+      {
+        display: flex;
+        align-items: first baseline;
+        justify-content: space-between;
+        padding: 20px 20px;
+
+        h1 
+        {
+          font-family: "Shrikhand";
+          font-size: 22px;
+        }
+      }
+
+      .dishes
+      {
+        opacity: 0;
+        .category 
+        {
+          text-indent: 20px;
+        }
+
+        .partial-underline 
+        {
+            position: relative;
+            border: 1px solid $tertiary;
+            width: 40px;
+            left: 19px;
+        }
+
+        .dish 
+        {
+          display: flex;
+          align-items: center;
+          margin: 10px;
+          background-color: rgb(255, 255, 255);
+          border-radius: 15px;
+          cursor: pointer;
+          @include box-shadow;
+          overflow: hidden;
+
+          .dish-container 
+          {
+            display: flex;   
+            flex-direction: column;
+            overflow: hidden;
+            padding: 10px 0 10px 10px;
+            flex-basis: 100%;
+            margin-right: -65.6px;
+            transition-property: margin-right;
+            transition-duration: .4s;
+
+            .main 
+            {
+              font-size: 20px;
+              font-weight: 600;
+            }
+
+            .side 
+            {
+              font-size: 14px;
+              text-overflow: ellipsis;
+              white-space:nowrap;
+              overflow: hidden;
+            }
+          }
+
+          
+
+          .cost 
+          {
+            display: flex;
+            align-items: center;
+            align-self:last baseline;
+            transform: translateX(65.6px);
+            font-size: 14px;
+            min-width:35px;
+            padding: 10px 0;
+            margin-right: 25px;
+            margin-left: 6px;
+            transition-property: transform;
+            transition-duration: .4s;
+            .fa-euro-sign
+            {
+              position: relative;
+              top: 0px;
+              font-size: 14px;
+              left: 2px;
+            }
+          }
+
+          .check-mark
+          {
+            display: flex;
+            border:1px solid $tertiary;
+            align-items: center;
+            align-self: stretch;
+            padding: 0px 20px;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+            background: $tertiary;
+            transform: translateX(65.6px);
+            transition-property: transform, margin-left;
+            transition-duration: .5s;
+
+            .fa-solid
+            {
+              &.fa-circle-check
+              {
+                color: #fff;
+                border-radius: 50%;
+              }
+            }
+          }
+      
+
+          &:hover > .dish-container
+          {
+            margin-right: 0;
+          }
+
+          &:hover > .cost
+          {
+            transform: translateX(0);
+          }
+
+          &:hover > .check-mark
+          {
+            margin-left: -7px;
+            transform: translateX(0);
+
+            .fa-solid
+            {
+              &.fa-circle-check
+              {
+                animation-name: spin;
+                animation-duration: .5s;
+                animation-fill-mode: forwards;
+              }
+            }
+          }
+
+        }
+
+        &#entrees
+        {
+          animation-name: showDish;
+          animation-duration: .5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease-in;
+          animation-delay: 1s;
+        }
+
+        &#main_dish
+        {
+          animation-name: showDish;
+          animation-duration: .5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease-in;
+          animation-delay: 1.5s;
+        }
+
+        &#desserts
+        {
+          animation-name: showDish;
+          animation-duration: .5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: linear;
+          animation-delay: 2s;
+        }
+      }
+
+      .button-container 
+      {
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 40px;
+
+        button 
+        {
+          width: 42%;
+          height: 40px;
+          border-radius: 22px;
+          background: linear-gradient($secondary, $primary);
+          color: white;
+          cursor: pointer;
+          &:hover
+          {
+            box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+            background: linear-gradient(rgba($secondary, .9), rgba($primary, .9));
+          }
+        }
+
+      }
+    }
+
+    footer 
+    {
+      background-color: #333333;
+      display: flex;
+      flex-direction: column;
+
+      .footer-logo 
+      {
+        width: 30%;
+        margin-left: 5%;
+        margin-top: 20px;
+        filter: invert(100%);
+      }
+
+      .suggest-a-restaurant 
+      {
+        margin-top: 10px;
+        margin-left: 5%;
+        filter: invert(100%);
+
+        span 
+        {
+          margin-left: 8px;
+          font-size: medium;
+          cursor: pointer;
+        }
+      }
+
+      .become-a-partner 
+      {
+        margin-top: 10px;
+        margin-left: 5%;
+        filter: invert(100%);
+
+        span
+        {
+          margin-left: 3px;
+          font-size: medium;
+          cursor: pointer;
+        }
+      }
+
+      .legal 
+      {
+        margin-top: 10px;
+        margin-left: 5%;
+        filter: invert(100%);
+
+        span 
+        {
+          margin-left: 3px;
+          font-size: medium;
+          cursor: pointer;
+        }
+      }
+
+      .contact 
+      {
+        margin-top: 10px;
+        margin-left: 5%;
+        filter: invert(100%);
+
+        a 
+        {
+          margin-left: 3px;
+          font-size: medium;
+          cursor: pointer;
+        }
+
+        margin-bottom: 10px;
+      }
+
+      #email
+      {
+        margin-left: 5%;
+        filter: invert(100%);
+        display: none;
+
+        &:target
+        {
+          display: block;
+        }
+
+        span 
+        {
+          margin-left: 3px;
+          font-size: medium;
+
+          .email_link
+          { 
+            text-decoration: underline;
+            cursor: pointer;
+          }
+        }
+
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+}
+
+
+
+  
+  
+  
+   
+  
+  
+  
+  
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+
+  
+ 
+  
+  
