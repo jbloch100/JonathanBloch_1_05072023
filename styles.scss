@@ -5,6 +5,14 @@
   color: black;
 }
 
+%dish_category_animation
+{
+  animation-name: showDish;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
 
 a {
 
@@ -67,9 +75,6 @@ $tertiary: #99E2D0;
   0%{
       opacity: 1;
   }
-  /*99.99%{
-      opacity: 1;
-  }*/
   100%{
       opacity: 0;
       z-index: -1;
@@ -232,7 +237,7 @@ body
           {
             position: relative;
             left: -20px;
-            color: #9356DC;
+            color: $primary;
             align-self: center;
           }
 
@@ -243,7 +248,7 @@ body
             top: 2px;
             .material-symbols-sharp 
             {
-              color: #9356DC;
+              color: $primary;
             }
             align-self: center;
           }
@@ -296,8 +301,8 @@ body
             .new-restaurant 
             {
               position: relative;
+              left: calc(100% - 90px);
               top: -135px;
-              left: 75%;
               padding: 2px 20px;
               background: $tertiary;
               color: rgb(0, 135, 102);
@@ -319,35 +324,29 @@ body
           
         }
 
-        .far
+        .fa-heart
         {
-          &.fa-heart
+          position: relative;
+          left: calc(100% - 60px);
+          top: -50px;
+          z-index: 1;
+          cursor: pointer;
+          transition-property: -webkit-background-clip, font-weight, background-image, -webkit-text-fill-color;
+          transition-duration: 2s;
+          transition-timing-function: ease-out;
+          width: fit-content;
+
+          &:active
           {
-            &.fa-xl
-            {
-              position: relative;
-              left: 85%;
-              top: -50px;
-              z-index: 1;
-              cursor: pointer;
-              transition-property: -webkit-background-clip, font-weight, background-image, -webkit-text-fill-color;
-              transition-duration: 2s;
-              transition-timing-function: ease-out;
-              width: fit-content;
-
-              &:active
-              {
-                /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
-                -webkit-background-clip: text;
-                font-weight: 900;
-                background-image: linear-gradient($primary, $secondary);
-                -webkit-text-fill-color: transparent;
-              }
-            }
-
+            /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
+            -webkit-background-clip: text;
+            font-weight: 900;
+            background-image: linear-gradient($primary, $secondary);
+            -webkit-text-fill-color: transparent;
           }
+        }
   
-        } 
+         
       }
     }
 
@@ -394,7 +393,7 @@ body
         {
           display: flex;
           align-items: center;
-          margin: 10px;
+          margin: 15px;
           background-color: rgb(255, 255, 255);
           border-radius: 15px;
           cursor: pointer;
@@ -406,11 +405,12 @@ body
             display: flex;   
             flex-direction: column;
             overflow: hidden;
-            padding: 10px 0 10px 10px;
+            padding: 15px 0 15px 10px;
             flex-basis: 100%;
-            margin-right: -65.6px;
+            margin-right: -59.6px;
             transition-property: margin-right;
-            transition-duration: .4s;
+            transition-duration: .30s;
+            transition-delay: .01s;
 
             .main 
             {
@@ -431,39 +431,35 @@ body
 
           .cost 
           {
-            display: flex;
-            align-items: center;
             align-self:last baseline;
-            transform: translateX(65.6px);
+            transform: translateX(59.6px);
             font-size: 14px;
             min-width:35px;
-            padding: 10px 0;
-            margin-right: 25px;
+            padding: 16px 0;
+            margin-right: 17px;
             margin-left: 6px;
             transition-property: transform;
-            transition-duration: .4s;
+            transition-duration: .30s;
+            transition-delay: .01s;
             .fa-euro-sign
             {
-              position: relative;
-              top: 0px;
-              font-size: 14px;
-              left: 2px;
+              font-size: 13px;
             }
           }
 
-          .check-mark
+          .selected
           {
             display: flex;
             border:1px solid $tertiary;
             align-items: center;
             align-self: stretch;
-            padding: 0px 20px;
+            padding: 0px 17px;
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
             background: $tertiary;
-            transform: translateX(65.6px);
-            transition-property: transform, margin-left;
-            transition-duration: .5s;
+            transform: translateX(59.6px);
+            transition-property: transform;
+            transition-duration: .4s;
 
             .fa-solid
             {
@@ -486,9 +482,8 @@ body
             transform: translateX(0);
           }
 
-          &:active > .check-mark
+          &:active > .selected
           {
-            margin-left: -7px;
             transform: translateX(0);
 
             .fa-solid
@@ -496,7 +491,8 @@ body
               &.fa-circle-check
               {
                 animation-name: spin;
-                animation-duration: .5s;
+                animation-duration: .39s;
+                animation-delay: .01s;
                 animation-fill-mode: forwards;
               }
             }
@@ -506,28 +502,19 @@ body
 
         &#entrees
         {
-          animation-name: showDish;
-          animation-duration: .5s;
-          animation-fill-mode: forwards;
-          animation-timing-function: ease-in;
+          @extend %dish_category_animation;
           animation-delay: 1s;
         }
 
         &#main_dish
         {
-          animation-name: showDish;
-          animation-duration: .5s;
-          animation-fill-mode: forwards;
-          animation-timing-function: ease-in;
+          @extend %dish_category_animation;
           animation-delay: 1.5s;
         }
 
         &#desserts
         {
-          animation-name: showDish;
-          animation-duration: .5s;
-          animation-fill-mode: forwards;
-          animation-timing-function: linear;
+          @extend %dish_category_animation;
           animation-delay: 2s;
         }
       }
@@ -695,12 +682,8 @@ body
   /*https://programmersportal.com/how-to-hide-a-div-after-5-seconds-in-css/*/
   @keyframes hideMe{
     0%{
-      /*display: flex;*/
         opacity: 1;
     }
-    /*99.99%{
-        opacity: 1;
-    }*/
     100%{
         opacity: 0;
         z-index: -1;
@@ -864,7 +847,7 @@ body
           {
             position: relative;
             left: -20px;
-            color: #9356DC;
+            color: $primary;
             align-self: center;
           }
 
@@ -875,7 +858,7 @@ body
             top: 2px;
             .material-symbols-sharp 
             {
-              color: #9356DC;
+              color: $primary;
             }
             align-self: center;
           }
@@ -929,7 +912,7 @@ body
             {
               position: relative;
               top: -135px;
-              left: 75%;
+              left: calc(100% - 90px);
               padding: 2px 20px;
               background: $tertiary;
               color: rgb(0, 135, 102);
@@ -951,34 +934,26 @@ body
           
         }
 
-        .far
+        .fa-heart
         {
-          &.fa-heart
+          position: relative;
+          left: calc(100% - 60px);
+          top: -50px;
+          z-index: 1;
+          cursor: pointer;
+          transition-property: -webkit-background-clip, font-weight, background-image, -webkit-text-fill-color;
+          transition-duration: 2s;
+          transition-timing-function: ease-out;
+          width: fit-content;
+
+          &:hover
           {
-            &.fa-xl
-            {
-              position: relative;
-              left: 85%;
-              top: -50px;
-              z-index: 1;
-              cursor: pointer;
-              transition-property: -webkit-background-clip, font-weight, background-image, -webkit-text-fill-color;
-              transition-duration: 2s;
-              transition-timing-function: ease-out;
-              width: fit-content;
-
-              &:hover
-              {
-                /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
-                -webkit-background-clip: text;
-                font-weight: 900;
-                background-image: linear-gradient($primary, $secondary);
-                -webkit-text-fill-color: transparent;
-              }
-            }
-
+            /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
+            -webkit-background-clip: text;
+            font-weight: 900;
+            background-image: linear-gradient($primary, $secondary);
+            -webkit-text-fill-color: transparent;
           }
-  
         } 
       }
     }
@@ -1026,7 +1001,7 @@ body
         {
           display: flex;
           align-items: center;
-          margin: 10px;
+          margin: 15px;
           background-color: rgb(255, 255, 255);
           border-radius: 15px;
           cursor: pointer;
@@ -1038,11 +1013,12 @@ body
             display: flex;   
             flex-direction: column;
             overflow: hidden;
-            padding: 10px 0 10px 10px;
+            padding: 15px 0 15px 10px;
             flex-basis: 100%;
-            margin-right: -65.6px;
+            margin-right: -59.6px;
             transition-property: margin-right;
-            transition-duration: .4s;
+            transition-duration: .3s;
+            transition-delay: .01s;
 
             .main 
             {
@@ -1066,14 +1042,16 @@ body
             display: flex;
             align-items: center;
             align-self:last baseline;
-            transform: translateX(65.6px);
+            transform: translateX(59.6px);
             font-size: 14px;
             min-width:35px;
-            padding: 10px 0;
-            margin-right: 25px;
+            padding: 16px 0;
+            margin-right: 17px;
             margin-left: 6px;
-            transition-property: transform;
-            transition-duration: .4s;
+            transition-property: transform,;
+            transition-duration: .3s;
+            transition-delay: .01s;
+           
             .fa-euro-sign
             {
               position: relative;
@@ -1083,19 +1061,19 @@ body
             }
           }
 
-          .check-mark
+          .selected
           {
             display: flex;
             border:1px solid $tertiary;
             align-items: center;
             align-self: stretch;
-            padding: 0px 20px;
+            padding: 0px 17px;
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
             background: $tertiary;
-            transform: translateX(65.6px);
-            transition-property: transform, margin-left;
-            transition-duration: .5s;
+            transform: translateX(59.6px);
+            transition-property: transform;
+            transition-duration: .4s;
 
             .fa-solid
             {
@@ -1118,9 +1096,8 @@ body
             transform: translateX(0);
           }
 
-          &:hover > .check-mark
+          &:hover > .selected
           {
-            margin-left: -7px;
             transform: translateX(0);
 
             .fa-solid
@@ -1128,7 +1105,8 @@ body
               &.fa-circle-check
               {
                 animation-name: spin;
-                animation-duration: .5s;
+                animation-duration: .3s;
+                animation-delay: .01s;
                 animation-fill-mode: forwards;
               }
             }
@@ -1138,28 +1116,19 @@ body
 
         &#entrees
         {
-          animation-name: showDish;
-          animation-duration: .5s;
-          animation-fill-mode: forwards;
-          animation-timing-function: ease-in;
+          @extend %dish_category_animation;
           animation-delay: 1s;
         }
 
         &#main_dish
         {
-          animation-name: showDish;
-          animation-duration: .5s;
-          animation-fill-mode: forwards;
-          animation-timing-function: ease-in;
+          @extend %dish_category_animation;
           animation-delay: 1.5s;
         }
 
         &#desserts
         {
-          animation-name: showDish;
-          animation-duration: .5s;
-          animation-fill-mode: forwards;
-          animation-timing-function: linear;
+          @extend %dish_category_animation;
           animation-delay: 2s;
         }
       }
