@@ -130,7 +130,7 @@ body .booking .explore:hover {
   background: linear-gradient(rgba(255, 121, 218, 0.9), rgba(147, 86, 220, 0.9));
 }
 body .howItWorks h2 {
-  text-indent: 2%;
+  text-indent: 3%;
 }
 body .howItWorks__options {
   display: flex;
@@ -562,7 +562,7 @@ body footer #email span .email_link {
     background: linear-gradient(rgba(255, 121, 218, 0.9), rgba(147, 86, 220, 0.9));
   }
   body .howItWorks h2 {
-    text-indent: 2%;
+    text-indent: 3%;
   }
   body .howItWorks__options {
     display: flex;
