@@ -4,7 +4,7 @@ a:active, a:focus, a:hover, a:visited, a {
   color: black;
 }
 
-body .menu .dishes#desserts, body .menu .dishes#main_dish, body .menu .dishes#entrees {
+.menu__dishes#desserts, .menu__dishes#main_dish, .menu__dishes#entrees {
   animation-name: showDish;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
@@ -51,7 +51,8 @@ body {
   height: 100vh;
   width: 100vw;
 }
-body .loader {
+
+.loading {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,7 +65,7 @@ body .loader {
   left: 0;
   animation: hideMe 3s forwards;
 }
-body .loader .spinner {
+.loading__spinner {
   width: 100px;
   height: 100px;
   border: 5px solid white;
@@ -73,30 +74,33 @@ body .loader .spinner {
   border-bottom: 5px solid red;
   animation: loading 0.5s ease infinite;
 }
-body header {
+
+header {
   padding-top: 10px;
   display: flex;
   align-items: center;
 }
-body header .fa-sharp.fa-solid.fa-arrow-left {
-  text-indent: 20px;
-  text-decoration: none;
-  color: black;
-}
-body header .logo {
+header .logo {
   display: block;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
 }
-body .fore-image {
+header .fa-arrow-left {
+  text-indent: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.fore-image {
   margin-top: 10px;
   object-fit: cover;
   height: 270px;
   width: 100%;
 }
-body .location {
+
+.location {
   display: flex;
   margin-top: 10px;
   text-indent: 15px;
@@ -106,16 +110,17 @@ body .location {
   align-items: center;
   justify-content: center;
 }
-body .booking {
+
+.booking {
   display: flex;
   flex-direction: column;
   background-color: rgb(246, 246, 246);
   text-align: center;
 }
-body .booking p {
+.booking p {
   font-size: 18px;
 }
-body .booking .explore {
+.booking button {
   margin: 15px auto;
   height: 40px;
   cursor: pointer;
@@ -125,22 +130,20 @@ body .booking .explore {
   color: white;
   width: 50%;
 }
-body .booking .explore:hover {
+.booking button:hover {
   box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.8);
-  background: linear-gradient(rgba(255, 121, 218, 0.9), rgba(147, 86, 220, 0.9));
+  background: linear-gradient(rgba(255, 121, 218, 0.8), rgba(147, 86, 220, 0.8));
 }
-body .howItWorks h2 {
-  text-indent: 3%;
-}
-body .howItWorks__options {
+
+.howItWorks {
   display: flex;
   flex-direction: column;
-  gap: 40px 0;
   padding: 0 20px;
 }
-body .howItWorks__options__option {
+.howItWorks__option {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
   background-color: #f6f6f6;
   font-size: 16px;
   cursor: pointer;
@@ -148,62 +151,63 @@ body .howItWorks__options__option {
   border-radius: 30px;
   box-shadow: 0px 5px 5px 5px rgb(232, 232, 232);
 }
-body .howItWorks__options__option .material-symbols-sharp {
+.howItWorks__option .material-symbols-sharp {
   position: relative;
   left: -20px;
   color: gray;
   align-self: center;
 }
-body .howItWorks__options__option .material-symbols-sharp--purple {
+.howItWorks__option .material-symbols-sharp--purple {
   position: relative;
   left: -20px;
   color: #9356DC;
   align-self: center;
 }
-body .howItWorks__options__option .counter-circle {
+.howItWorks__option .counter-circle {
   position: relative;
   left: -23px;
   top: 2px;
   align-self: center;
 }
-body .howItWorks__options__option .counter-circle .material-symbols-sharp {
+.howItWorks__option .counter-circle .material-symbols-sharp {
   color: #9356DC;
 }
-body .restaurants-container {
+
+.restaurants-container {
   display: flex;
   flex-direction: column;
   background-color: #f6f6f6;
   margin-top: 70px;
   padding-bottom: 50px;
 }
-body .restaurants-container h2 {
+.restaurants-container h2 {
   padding-top: 20px;
   text-indent: 3%;
 }
-body .restaurants-container__restaurants {
+.restaurants-container__restaurants {
   display: flex;
   flex-direction: column;
   padding: 0px 3%;
 }
-body .restaurants-container__restaurants__restaurant {
+.restaurants-container__restaurants__restaurant {
   height: 220px;
   width: 100%;
   border-radius: 15px;
   background-color: white;
   box-shadow: 0px 5px 5px 5px rgb(232, 232, 232);
 }
-body .restaurants-container__restaurants__restaurant__image {
+.restaurants-container__restaurants__restaurant__image {
   height: 150px;
   width: 100%;
 }
-body .restaurants-container__restaurants__restaurant__image img {
+.restaurants-container__restaurants__restaurant__image img {
   height: 100%;
   width: 100%;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   object-fit: cover;
 }
-body .restaurants-container__restaurants__restaurant__image .new-restaurant {
+.restaurants-container__restaurants__restaurant__image .new {
   position: relative;
   left: calc(100% - 90px);
   top: -135px;
@@ -211,16 +215,16 @@ body .restaurants-container__restaurants__restaurant__image .new-restaurant {
   background: #99E2D0;
   color: rgb(0, 135, 102);
 }
-body .restaurants-container__restaurants__restaurant h4 {
+.restaurants-container__restaurants__restaurant h4 {
   line-height: 2px;
   text-indent: 12px;
 }
-body .restaurants-container__restaurants__restaurant p {
+.restaurants-container__restaurants__restaurant p {
   text-align: left;
   text-indent: 12px;
   line-height: 2px;
 }
-body .restaurants-container__restaurants .fa-heart {
+.restaurants-container__restaurants .fa-heart {
   position: relative;
   left: calc(100% - 60px);
   top: -50px;
@@ -231,14 +235,15 @@ body .restaurants-container__restaurants .fa-heart {
   transition-timing-function: ease-out;
   width: fit-content;
 }
-body .restaurants-container__restaurants .fa-heart:active {
+.restaurants-container__restaurants .fa-heart:active {
   /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
-  -webkit-background-clip: text;
-  font-weight: 900;
-  background-image: linear-gradient(#9356DC, #FF79DA);
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
+  font-weight: 900; /*Without this, only the outline of the heart will be colored*/
+  background-image: linear-gradient(#9356DC, #FF79DA); /*Colors the heart*/
+  -webkit-text-fill-color: transparent; /*Makes the transparent color of black the abover color*/
 }
-body .menu {
+
+.menu {
   position: relative;
   top: -65px;
   border-top-left-radius: 40px;
@@ -246,29 +251,29 @@ body .menu {
   background-color: #f6f6f6;
   margin-bottom: -65px;
 }
-body .menu .restaurant-logo {
+.menu__restaurant-logo {
   display: flex;
   align-items: first baseline;
   justify-content: space-between;
   padding: 20px 20px;
 }
-body .menu .restaurant-logo h1 {
+.menu__restaurant-logo h1 {
   font-family: "Shrikhand";
   font-size: 22px;
 }
-body .menu .dishes {
+.menu__dishes {
   opacity: 0;
 }
-body .menu .dishes .category {
+.menu__dishes .category {
   text-indent: 20px;
 }
-body .menu .dishes .partial-underline {
+.menu__dishes .partial-underline {
   position: relative;
   border: 1px solid #99E2D0;
   width: 40px;
   left: 19px;
 }
-body .menu .dishes .dish {
+.menu__dishes__dish {
   display: flex;
   align-items: center;
   margin: 15px;
@@ -278,7 +283,7 @@ body .menu .dishes .dish {
   box-shadow: 0px 5px 5px 5px rgb(232, 232, 232);
   overflow: hidden;
 }
-body .menu .dishes .dish .dish-container {
+.menu__dishes__dish__container {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -289,17 +294,17 @@ body .menu .dishes .dish .dish-container {
   transition-duration: 0.3s;
   transition-delay: 0.01s;
 }
-body .menu .dishes .dish .dish-container .main {
+.menu__dishes__dish__container .main {
   font-size: 18px;
   font-weight: 600;
 }
-body .menu .dishes .dish .dish-container .side {
+.menu__dishes__dish__container .side {
   font-size: 14px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-body .menu .dishes .dish .cost {
+.menu__dishes__dish .cost {
   align-self: last baseline;
   transform: translateX(59.6px);
   font-size: 14px;
@@ -311,10 +316,10 @@ body .menu .dishes .dish .cost {
   transition-duration: 0.3s;
   transition-delay: 0.01s;
 }
-body .menu .dishes .dish .cost .fa-euro-sign {
+.menu__dishes__dish .cost .fa-euro-sign {
   font-size: 13px;
 }
-body .menu .dishes .dish .selected {
+.menu__dishes__dish .selected {
   display: flex;
   border: 1px solid #99E2D0;
   align-items: center;
@@ -327,40 +332,40 @@ body .menu .dishes .dish .selected {
   transition-property: transform;
   transition-duration: 0.4s;
 }
-body .menu .dishes .dish .selected .fa-solid.fa-circle-check {
+.menu__dishes__dish .selected .fa-solid.fa-circle-check {
   color: #fff;
   border-radius: 50%;
 }
-body .menu .dishes .dish:active > .dish-container {
+.menu__dishes__dish:active > .menu__dishes__dish__container {
   margin-right: 0;
 }
-body .menu .dishes .dish:active > .cost {
+.menu__dishes__dish:active > .cost {
   transform: translateX(0);
 }
-body .menu .dishes .dish:active > .selected {
+.menu__dishes__dish:active > .selected {
   transform: translateX(0);
 }
-body .menu .dishes .dish:active > .selected .fa-solid.fa-circle-check {
+.menu__dishes__dish:active > .selected .fa-solid.fa-circle-check {
   animation-name: spin;
   animation-duration: 0.4s;
   animation-delay: 0.1s;
   animation-fill-mode: forwards;
 }
-body .menu .dishes#entrees {
+.menu__dishes#entrees {
   animation-delay: 1s;
 }
-body .menu .dishes#main_dish {
+.menu__dishes#main_dish {
   animation-delay: 1.5s;
 }
-body .menu .dishes#desserts {
+.menu__dishes#desserts {
   animation-delay: 2s;
 }
-body .menu .button-container {
+.menu .button-container {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 40px;
 }
-body .menu .button-container button {
+.menu .button-container button {
   width: 42%;
   height: 40px;
   border-radius: 22px;
@@ -368,76 +373,77 @@ body .menu .button-container button {
   color: white;
   cursor: pointer;
 }
-body .menu .button-container button:hover {
+.menu .button-container button:hover {
   box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.8);
-  background: linear-gradient(rgba(255, 121, 218, 0.9), rgba(147, 86, 220, 0.9));
+  background: linear-gradient(rgba(255, 121, 218, 0.8), rgba(147, 86, 220, 0.8));
 }
-body footer {
+
+footer {
   background-color: #333333;
   display: flex;
   flex-direction: column;
 }
-body footer .footer-logo {
+footer .footer-logo {
   width: 30%;
   margin-left: 5%;
   margin-top: 20px;
   filter: invert(100%);
 }
-body footer .suggest-a-restaurant {
+footer .suggest-a-restaurant {
   margin-top: 10px;
   margin-left: 5%;
   filter: invert(100%);
 }
-body footer .suggest-a-restaurant span {
+footer .suggest-a-restaurant span {
   margin-left: 8px;
   font-size: medium;
   cursor: pointer;
 }
-body footer .become-a-partner {
+footer .become-a-partner {
   margin-top: 10px;
   margin-left: 5%;
   filter: invert(100%);
 }
-body footer .become-a-partner span {
+footer .become-a-partner span {
   margin-left: 3px;
   font-size: medium;
   cursor: pointer;
 }
-body footer .legal {
+footer .legal {
   margin-top: 10px;
   margin-left: 5%;
   filter: invert(100%);
 }
-body footer .legal span {
+footer .legal span {
   margin-left: 3px;
   font-size: medium;
   cursor: pointer;
 }
-body footer .contact {
+footer .contact {
   margin-top: 10px;
   margin-left: 5%;
   filter: invert(100%);
   margin-bottom: 10px;
 }
-body footer .contact a {
+footer .contact a {
   margin-left: 3px;
   font-size: medium;
   cursor: pointer;
 }
-body footer #email {
+footer #email {
   margin-left: 5%;
   filter: invert(100%);
   display: none;
   margin-bottom: 10px;
 }
-body footer #email:target {
+footer #email:target {
   display: block;
 }
-body footer #email span {
+footer #email span {
   margin-left: 3px;
   font-size: medium;
 }
-body footer #email span .email_link {
+footer #email span .email_link {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -445,21 +451,21 @@ body footer #email span .email_link {
 @media (min-width: 640px) {
   .restaurants-container__restaurants .fa-heart:hover {
     /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
-    -webkit-background-clip: text;
-    font-weight: 900;
-    background-image: linear-gradient(#9356DC, #FF79DA);
-    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
+    font-weight: 900; /*Without this, only the outline of the heart will be colored*/
+    background-image: linear-gradient(#9356DC, #FF79DA); /*Colors the heart*/
+    -webkit-text-fill-color: transparent; /*Makes the transparent color of black the abover color*/
   }
-  .menu .dishes .dish:hover > .dish-container {
+  .menu__dishes__dish:hover > .menu__dishes__dish__container {
     margin-right: 0;
   }
-  .menu .dishes .dish:hover > .cost {
+  .menu__dishes__dish:hover > .cost {
     transform: translateX(0);
   }
-  .menu .dishes .dish:hover > .selected {
+  .menu__dishes__dish:hover > .selected {
     transform: translateX(0);
   }
-  .menu .dishes .dish:hover > .selected .fa-solid.fa-circle-check {
+  .menu__dishes__dish:hover > .selected .fa-solid.fa-circle-check {
     animation-name: spin;
     animation-duration: 0.4s;
     animation-delay: 0.1s;
