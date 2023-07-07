@@ -43,7 +43,7 @@ a:active, a:focus, a:hover, a:visited, a {
   }
   100% {
     opacity: 1;
-    transform: translateY(-5px);
+    transform: translateY(-10px);
   }
 }
 body {
