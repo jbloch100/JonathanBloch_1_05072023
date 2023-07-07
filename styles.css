@@ -118,7 +118,8 @@ header .fa-arrow-left {
   text-align: center;
 }
 .booking p {
-  font-size: 18px;
+  font-size: 19px;
+  font-weight: lighter;
 }
 .booking button {
   margin: 15px auto;

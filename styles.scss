@@ -183,7 +183,8 @@ header
 
   p 
   {
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: lighter;
   }
 
   button
@@ -458,6 +459,7 @@ header
         transform: translateX(65.6px);
         transition-property: transform;
         transition-duration: .4s;
+        
 
         .fa-solid
         {
