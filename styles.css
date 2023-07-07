@@ -260,6 +260,7 @@ header .fa-arrow-left {
 }
 .menu__restaurant-logo h1 {
   font-family: "Shrikhand";
+  font-display: swap;
   font-size: 22px;
 }
 .menu__dishes {
