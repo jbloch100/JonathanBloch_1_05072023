@@ -406,7 +406,7 @@ header
         overflow: hidden;
         padding: 15px 0 15px 10px;
         flex-basis: 100%;
-        margin-right: -59.6px;
+        margin-right: -65.6px;
         transition-property: margin-right;
         transition-duration: .30s;
         transition-delay: .01s;
@@ -431,7 +431,7 @@ header
       .cost 
       {
         align-self:last baseline;
-        transform: translateX(59.6px);
+        transform: translateX(65.6px);
         font-size: 14px;
         min-width:35px;
         padding: 16px 0;
@@ -449,14 +449,13 @@ header
       .selected
       {
         display: flex;
-        border:1px solid $tertiary;
         align-items: center;
         align-self: stretch;
-        padding: 0px 17px;
+        padding: 0px 20px;
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
         background: $tertiary;
-        transform: translateX(59.6px);
+        transform: translateX(65.6px);
         transition-property: transform;
         transition-duration: .4s;
 
