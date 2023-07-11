@@ -362,14 +362,14 @@ header
   &__restaurant-logo 
   {
     display: flex;
-    align-items: first baseline;
+    align-items:stretch;
     justify-content: space-between;
-    padding: 20px 20px;
+    padding: 40px 20px;
 
-    h1 
+    .fa-heart
     {
-      font-family: Shrikhand !important;
-      font-size: 22px;
+      position: relative;
+      top: 10.5px;
     }
   }
 

@@ -254,13 +254,13 @@ header .fa-arrow-left {
 }
 .menu__restaurant-logo {
   display: flex;
-  align-items: first baseline;
+  align-items: stretch;
   justify-content: space-between;
-  padding: 20px 20px;
+  padding: 40px 20px;
 }
-.menu__restaurant-logo h1 {
-  font-family: Shrikhand !important;
-  font-size: 22px;
+.menu__restaurant-logo .fa-heart {
+  position: relative;
+  top: 10.5px;
 }
 .menu__dishes {
   opacity: 0;
