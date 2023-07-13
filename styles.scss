@@ -46,10 +46,12 @@
 
 /*https://programmersportal.com/how-to-hide-a-div-after-5-seconds-in-css/*/
 @keyframes hideMe{
-  0%{
+  0%
+  {
       opacity: 1;
   }
-  100%{
+  100%
+  {
       opacity: 0;
       z-index: -1;
   }
@@ -57,11 +59,13 @@
 
 @keyframes showDish 
 {
-  0%{
+  0%
+  {
     opacity: 0;
   }
 
-  100%{
+  100%
+  {
     opacity: 1;
     transform: translateY(-10px);
   }
@@ -329,23 +333,21 @@ header
       top: -50px;
       z-index: 1;
       cursor: pointer;
-      transition-property: -webkit-background-clip, font-weight, background-image, -webkit-text-fill-color;
-      transition-duration: 2s;
-      transition-timing-function: ease-out;
       width: fit-content;
+      transition-duration: 0.2s;
+      transition-timing-function: ease-in-out;
 
       &:active
       {
         /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
 
         -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
-        /*-moz-background-clip: text;*/
+
         font-weight: 900; /*Without this, only the outline of the heart will be colored*/
-        
+
         background-image: linear-gradient($primary, $secondary);  /*Colors the heart*/
-        
+
         -webkit-text-fill-color: transparent; /*Makes the transparent color of black the abover color*/
-        /*-moz-text-fill-color:transparent;*/
       }
     }    
   }
@@ -644,7 +646,7 @@ footer
 }
 
 
-@media (min-width: 640px)
+@media (min-width: 641px)
 {
   .restaurants-container
   {
@@ -655,16 +657,14 @@ footer
         &:hover
         {
           /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
-          
-          -webkit-background-clip: text;  /*Cuts the heart icon out from the whole image*/
-          -moz-background-clip: text;
+
+          -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
 
           font-weight: 900; /*Without this, only the outline of the heart will be colored*/
-          
+
           background-image: linear-gradient($primary, $secondary);  /*Colors the heart*/
-          
+
           -webkit-text-fill-color: transparent; /*Makes the transparent color of black the abover color*/
-          -moz-text-fill-color:transparent;
         }
       }
     }
