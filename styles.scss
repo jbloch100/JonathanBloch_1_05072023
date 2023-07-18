@@ -333,8 +333,9 @@ header
       top: -50px;
       z-index: 1;
       cursor: pointer;
-      width: fit-content;
-      transition-duration: 0.2s;
+      width: 24px;
+      height: 24px;
+      transition-duration: 0.5s;
       transition-timing-function: ease-in-out;
 
       &:active
