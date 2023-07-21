@@ -189,6 +189,7 @@ header .fa-arrow-left {
   display: flex;
   flex-direction: column;
   padding: 0px 3%;
+  gap: 20px 0;
 }
 .restaurants-container__restaurants__restaurant {
   height: 220px;
@@ -216,32 +217,62 @@ header .fa-arrow-left {
   background: #99E2D0;
   color: rgb(0, 135, 102);
 }
-.restaurants-container__restaurants__restaurant h4 {
-  line-height: 2px;
-  text-indent: 12px;
-}
-.restaurants-container__restaurants__restaurant p {
-  text-align: left;
-  text-indent: 12px;
-  line-height: 2px;
-}
-.restaurants-container__restaurants .fa-heart {
+.restaurants-container__restaurants__restaurant__bottom-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: relative;
-  left: calc(100% - 60px);
-  top: -50px;
-  z-index: 1;
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-in-out;
+  top: -5px;
+  padding: 0 10px;
 }
-.restaurants-container__restaurants .fa-heart:active {
+.restaurants-container__restaurants__restaurant__bottom-container p {
+  position: relative;
+  top: -20px;
+  font-size: 14px;
+}
+.restaurants-container__restaurants__restaurant__bottom-container .heart {
+  display: flex;
+  position: relative;
+  top: -5px;
+  left: -20px;
+  height: 24px;
+  width: 24px;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
+}
+.restaurants-container__restaurants__restaurant__bottom-container .heart .far {
+  position: relative;
+  align-self: center;
+  left: 12px;
+  z-index: 0;
+  cursor: pointer;
+}
+.restaurants-container__restaurants__restaurant__bottom-container .heart .fas {
+  opacity: 0;
+  position: relative;
+  align-self: center;
+  right: 11.7px;
+  z-index: 0;
+  cursor: pointer;
   /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
   -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
-  font-weight: 900; /*Without this, only the outline of the heart will be colored*/
   background-image: linear-gradient(#9356DC, #FF79DA); /*Colors the heart*/
   -webkit-text-fill-color: transparent; /*Makes the transparent color of black the abover color*/
+  transition-property: opacity;
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
+}
+.restaurants-container__restaurants__restaurant__bottom-container .heart .fas:active {
+  opacity: 1;
+}
+.restaurants-container__restaurants__restaurant__bottom-container .heart:active {
+  /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
+  -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
+  background-image: linear-gradient(#9356DC, #FF79DA); /*Colors the heart*/
+  color: transparent; /*Makes the transparent color of black the abover color*/
 }
 
 .menu {
@@ -451,12 +482,14 @@ footer #email span .email_link {
 }
 
 @media (min-width: 641px) {
-  .restaurants-container__restaurants .fa-heart:hover {
+  .restaurants-container__restaurants .heart .fas:hover {
+    opacity: 1;
+  }
+  .restaurants-container__restaurants .heart:hover {
     /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
     -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
-    font-weight: 900; /*Without this, only the outline of the heart will be colored*/
     background-image: linear-gradient(#9356DC, #FF79DA); /*Colors the heart*/
-    -webkit-text-fill-color: transparent; /*Makes the transparent color of black the abover color*/
+    color: transparent; /*Makes the transparent color of black the abover color*/
   }
   .menu__dishes__dish:hover > .menu__dishes__dish__container {
     margin-right: 0;
