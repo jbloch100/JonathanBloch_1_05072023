@@ -46,6 +46,17 @@ a:active, a:focus, a:hover, a:visited, a {
     transform: translateY(-10px);
   }
 }
+/*https://css-tricks.com/box-sizing/ */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: Roboto;
   height: 100vh;
@@ -137,11 +148,13 @@ header .fa-arrow-left {
 }
 
 .howItWorks {
-  display: flex;
-  flex-direction: column;
   padding: 0 20px;
 }
-.howItWorks__option {
+.howItWorks__options {
+  display: flex;
+  flex-direction: column;
+}
+.howItWorks__options__option {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
@@ -152,25 +165,25 @@ header .fa-arrow-left {
   border-radius: 30px;
   box-shadow: 0px 5px 5px 5px rgb(232, 232, 232);
 }
-.howItWorks__option .material-symbols-sharp {
+.howItWorks__options__option .material-symbols-sharp {
   position: relative;
   left: -20px;
   color: gray;
   align-self: center;
 }
-.howItWorks__option .material-symbols-sharp--purple {
+.howItWorks__options__option .material-symbols-sharp--purple {
   position: relative;
   left: -20px;
   color: #9356DC;
   align-self: center;
 }
-.howItWorks__option .counter-circle {
+.howItWorks__options__option .counter-circle {
   position: relative;
   left: -23px;
   top: 2px;
   align-self: center;
 }
-.howItWorks__option .counter-circle .material-symbols-sharp {
+.howItWorks__options__option .counter-circle .material-symbols-sharp {
   color: #9356DC;
 }
 
@@ -189,7 +202,7 @@ header .fa-arrow-left {
   display: flex;
   flex-direction: column;
   padding: 0px 3%;
-  gap: 20px 0;
+  gap: 20px;
 }
 .restaurants-container__restaurants__restaurant {
   height: 220px;
@@ -231,48 +244,36 @@ header .fa-arrow-left {
   font-size: 14px;
 }
 .restaurants-container__restaurants__restaurant__bottom-container .heart {
-  display: flex;
+  display: grid;
   position: relative;
   top: -5px;
-  left: -20px;
+  left: -19px;
   height: 24px;
   width: 24px;
-  z-index: 1;
-  align-items: center;
-  justify-content: center;
-  transition-duration: 0.6s;
-  transition-timing-function: ease;
+  overflow: visible;
 }
 .restaurants-container__restaurants__restaurant__bottom-container .heart .far {
-  position: relative;
-  align-self: center;
-  left: 12px;
-  z-index: 0;
+  grid-column: 1;
+  grid-row: 1;
   cursor: pointer;
 }
 .restaurants-container__restaurants__restaurant__bottom-container .heart .fas {
   opacity: 0;
-  position: relative;
-  align-self: center;
-  right: 11.7px;
-  z-index: 0;
+  grid-column: 1;
+  grid-row: 1;
   cursor: pointer;
+  height: 25px;
+  width: 25px;
   /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
   -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
   background-image: linear-gradient(#9356DC, #FF79DA); /*Colors the heart*/
   -webkit-text-fill-color: transparent; /*Makes the transparent color of black the abover color*/
   transition-property: opacity;
-  transition-duration: 0.6s;
+  transition-duration: 3s;
   transition-timing-function: ease;
 }
 .restaurants-container__restaurants__restaurant__bottom-container .heart .fas:active {
   opacity: 1;
-}
-.restaurants-container__restaurants__restaurant__bottom-container .heart:active {
-  /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
-  -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
-  background-image: linear-gradient(#9356DC, #FF79DA); /*Colors the heart*/
-  color: transparent; /*Makes the transparent color of black the abover color*/
 }
 
 .menu {
@@ -308,7 +309,12 @@ header .fa-arrow-left {
   width: 40px;
   left: 19px;
 }
-.menu__dishes__dish {
+.menu__dishes__wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.menu__dishes__wrapper__dish {
   display: flex;
   align-items: center;
   margin: 15px;
@@ -318,7 +324,7 @@ header .fa-arrow-left {
   box-shadow: 0px 5px 5px 5px rgb(232, 232, 232);
   overflow: hidden;
 }
-.menu__dishes__dish__container {
+.menu__dishes__wrapper__dish__container {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -329,32 +335,32 @@ header .fa-arrow-left {
   transition-duration: 0.3s;
   transition-delay: 0.01s;
 }
-.menu__dishes__dish__container .main {
+.menu__dishes__wrapper__dish__container .main {
   font-size: 19px;
   font-weight: 600;
 }
-.menu__dishes__dish__container .side {
+.menu__dishes__wrapper__dish__container .side {
   font-size: 13.5px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.menu__dishes__dish .cost {
+.menu__dishes__wrapper__dish .cost {
   align-self: last baseline;
   transform: translateX(65.6px);
   font-size: 13.5px;
   min-width: 35px;
-  padding: 16px 0;
+  padding: 15px 0;
   margin-right: 17px;
   margin-left: 6px;
   transition-property: transform;
   transition-duration: 0.3s;
   transition-delay: 0.01s;
 }
-.menu__dishes__dish .cost .fa-euro-sign {
+.menu__dishes__wrapper__dish .cost .fa-euro-sign {
   font-size: 13px;
 }
-.menu__dishes__dish .selected {
+.menu__dishes__wrapper__dish .selected {
   display: flex;
   align-items: center;
   align-self: stretch;
@@ -366,20 +372,20 @@ header .fa-arrow-left {
   transition-property: transform;
   transition-duration: 0.4s;
 }
-.menu__dishes__dish .selected .fa-solid.fa-circle-check {
+.menu__dishes__wrapper__dish .selected .fa-solid.fa-circle-check {
   color: #fff;
   border-radius: 50%;
 }
-.menu__dishes__dish:active > .menu__dishes__dish__container {
+.menu__dishes__wrapper__dish:active > .menu__dishes__wrapper__dish__container {
   margin-right: 0;
 }
-.menu__dishes__dish:active > .cost {
+.menu__dishes__wrapper__dish:active > .cost {
   transform: translateX(0);
 }
-.menu__dishes__dish:active > .selected {
+.menu__dishes__wrapper__dish:active > .selected {
   transform: translateX(0);
 }
-.menu__dishes__dish:active > .selected .fa-solid.fa-circle-check {
+.menu__dishes__wrapper__dish:active > .selected .fa-solid.fa-circle-check {
   animation-name: spin;
   animation-duration: 0.4s;
   animation-delay: 0.1s;
@@ -481,29 +487,79 @@ footer #email span .email_link {
   cursor: pointer;
 }
 
-@media (min-width: 641px) {
-  .restaurants-container__restaurants .heart .fas:hover {
+@media (min-width: 640px) {
+  .restaurants-container__restaurants {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .restaurants-container__restaurants__restaurant {
+    flex-basis: 48%;
+    gap: 22px 22px;
+  }
+  .restaurants-container__restaurants__restaurant .heart .fas:hover {
     opacity: 1;
   }
-  .restaurants-container__restaurants .heart:hover {
-    /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
-    -webkit-background-clip: text; /*Cuts the heart icon out from the whole image*/
-    background-image: linear-gradient(#9356DC, #FF79DA); /*Colors the heart*/
-    color: transparent; /*Makes the transparent color of black the abover color*/
+  .menu__dishes__wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  .menu__dishes__dish:hover > .menu__dishes__dish__container {
+  .menu__dishes__wrapper__dish {
+    flex-basis: 45%;
+    height: fit-content;
+  }
+  .menu__dishes__wrapper__dish:hover > .menu__dishes__wrapper__dish__container {
     margin-right: 0;
   }
-  .menu__dishes__dish:hover > .cost {
+  .menu__dishes__wrapper__dish:hover > .cost {
     transform: translateX(0);
   }
-  .menu__dishes__dish:hover > .selected {
+  .menu__dishes__wrapper__dish:hover > .selected {
     transform: translateX(0);
   }
-  .menu__dishes__dish:hover > .selected .fa-solid.fa-circle-check {
+  .menu__dishes__wrapper__dish:hover > .selected .fa-solid.fa-circle-check {
     animation-name: spin;
     animation-duration: 0.4s;
     animation-delay: 0.1s;
     animation-fill-mode: forwards;
+  }
+}
+@media (min-width: 1024px) {
+  .restaurants-container__restaurants {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .restaurants-container__restaurants__restaurant {
+    flex-basis: 30%;
+  }
+  .howItWorks__options {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .howItWorks__options__option {
+    flex-basis: 30%;
+  }
+  .menu__dishes__wrapper__dish {
+    flex-basis: 30%;
+    height: fit-content;
+  }
+}
+@media (min-width: 1280px) {
+  .restaurants-container__restaurants {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .restaurants-container__restaurants__restaurant {
+    flex-basis: 23%;
+  }
+  .howItWorks__options {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .howItWorks__options__option {
+    flex-basis: 30%;
+  }
+  .menu__dishes__wrapper__dish {
+    flex-basis: 22%;
+    height: fit-content;
   }
 }/*# sourceMappingURL=styles.css.map */
