@@ -363,17 +363,6 @@ header
             cursor: pointer;
             height: 24px;
             width: 24px;
-
-            transition-property: opacity;
-
-            transition-duration: 3.0s;
-
-            transition-timing-function: ease;
-
-            &:active
-            {
-              opacity: 0;
-            }
           }
           
           .fas
@@ -442,6 +431,7 @@ header
 
   &__dishes
   {
+    opacity: 0;
     padding: 20px 0;
 
     .category 
@@ -728,14 +718,6 @@ footer
 
         .heart
         {
-          .far
-          {
-            &:hover
-            {
-              opacity: 0;
-            }
-          }
-
           .fas
           {
             &:hover
