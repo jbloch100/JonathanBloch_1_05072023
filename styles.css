@@ -19,7 +19,7 @@ a:active, a:focus, a:hover, a:visited, a {
     transform: rotate(360deg);
   }
 }
-@keyframes loading {
+@keyframes load {
   from {
     transform: rotate(0deg);
   }
@@ -82,7 +82,7 @@ body {
   border-radius: 50%;
   border-top: 5px solid green;
   border-bottom: 5px solid red;
-  animation: loading 0.5s ease infinite;
+  animation: load 0.5s ease infinite;
 }
 
 header {
