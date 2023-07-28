@@ -305,7 +305,7 @@ header .fa-arrow-left {
   top: 35px;
 }
 .menu__dishes {
-  padding-bottom: 15px;
+  padding: 10px 0;
 }
 .menu__dishes .category {
   text-indent: 20px;
