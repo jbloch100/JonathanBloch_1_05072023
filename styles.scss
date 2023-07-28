@@ -384,7 +384,7 @@ header
             cursor: pointer;
             height: 24px;
             width: 24px;
-            z-index: 2;
+    
 
             /*Source:https://stackoverflow.com/questions/65774048/how-to-add-a-gradient-color-to-an-icon-with-no-border*/
 
@@ -466,7 +466,7 @@ header
       {
         display: flex;
         align-items: center;
-        margin: 15px;
+        margin: 15px 15px 0 15px;
         background-color: rgb(255, 255, 255);
         border-radius: 15px;
         cursor: pointer;
