@@ -258,6 +258,12 @@ header .fa-arrow-left {
   cursor: pointer;
   height: 24px;
   width: 24px;
+  transition-property: opacity;
+  transition-duration: 3s;
+  transition-timing-function: ease;
+}
+.restaurants-container__restaurants__restaurant__bottom-container .heart .far:active {
+  opacity: 0;
 }
 .restaurants-container__restaurants__restaurant__bottom-container .heart .fas {
   opacity: 0;
@@ -301,7 +307,7 @@ header .fa-arrow-left {
   top: 35px;
 }
 .menu__dishes {
-  opacity: 0;
+  padding-bottom: 15px;
 }
 .menu__dishes .category {
   text-indent: 20px;
@@ -498,6 +504,9 @@ footer #email span .email_link {
   .restaurants-container__restaurants__restaurant {
     flex-basis: 48%;
     gap: 22px 22px;
+  }
+  .restaurants-container__restaurants__restaurant .heart .far:hover {
+    opacity: 0;
   }
   .restaurants-container__restaurants__restaurant .heart .fas:hover {
     opacity: 1;
